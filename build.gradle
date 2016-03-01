@@ -1,0 +1,15 @@
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'javax.servlet:jstl:1.2'
+    compile group: 'org.springframework', name: 'spring-core', version:'4.1.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'4.1.1.RELEASE'
+    compile group: 'javax.servlet', name: 'servlet-api', version:'2.5'
+    compile group: 'org.springframework', name: 'spring-webmvc', version:'4.1.1.RELEASE'
+    testCompile group: 'org.springframework', name: 'spring-test', version:'4.1.1.RELEASE'
+    providedCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:'2.1'
+}
