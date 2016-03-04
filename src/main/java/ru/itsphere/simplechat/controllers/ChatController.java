@@ -15,7 +15,7 @@ import java.util.List;
 public class ChatController {
     public static final String MESSAGES_ATTRIBUTE = "messages";
     public static final String PAGE = "chat";
-    private List<Message> messages = new LinkedList<>();
+    private List<Message> messages = new LinkedList<Message>();
 
     @RequestMapping(method = RequestMethod.GET)
     public String dispatchToChatPage(ModelMap model) {
