@@ -14,8 +14,8 @@
 
 <div class="block">
     <c:if test="${not empty messages}">
-        <c:forEach var="message" items="${messages}" varStatus="status">
-            <div><span style="color: chocolate">${authors[status.index]}: </span>${message}</div>
+        <c:forEach var="message" items="${messages}">
+            <div><span style="color: chocolate">${message.author}: </span>${message.text}</div>
         </c:forEach>
     </c:if>
 </div>

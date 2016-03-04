@@ -5,6 +5,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.itsphere.simplechat.domain.Message;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,15 +13,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class ChatController {
-    public static final String AUTHORS_ATTRIBUTE = "authors";
     public static final String MESSAGES_ATTRIBUTE = "messages";
     public static final String PAGE = "chat";
-    private List<String> authors = new LinkedList<>();
-    private List<String> messages = new LinkedList<>();
+    private List<Message> messages = new LinkedList<>();
 
     @RequestMapping(method = RequestMethod.GET)
     public String dispatchToChatPage(ModelMap model) {
-        model.addAttribute(AUTHORS_ATTRIBUTE, authors);
         model.addAttribute(MESSAGES_ATTRIBUTE, messages);
         return PAGE;
     }
@@ -32,7 +30,6 @@ public class ChatController {
     }
 
     private synchronized void saveMessage(@RequestParam String author, @RequestParam String text) {
-        authors.add(author);
-        messages.add(text);
+        messages.add(new Message(author, text));
     }
 }
